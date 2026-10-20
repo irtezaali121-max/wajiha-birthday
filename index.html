@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#ff5c93">
+<title>Happy Birthday, Wajiha! 🎂</title>
+<style>
+  :root { --pink:#ff5c93; --deep:#8e2454; --cream:#fff7fb; }
+  * { box-sizing:border-box; }
+  body {
+    margin:0; min-height:100vh; font-family: Georgia, 'Times New Roman', serif;
+    color:#4a2140; overflow-x:hidden;
+    background: radial-gradient(circle at top left,#ffe0ed 0,transparent 36%),
+                radial-gradient(circle at bottom right,#e5dcff 0,transparent 35%),
+                linear-gradient(135deg,#fff8fc,#fff0f6 55%,#f7f1ff);
+  }
+  .wrap { width:min(900px,92%); margin:0 auto; padding:36px 0 28px; text-align:center; }
+  .eyebrow { letter-spacing:4px; text-transform:uppercase; font:700 12px Arial,sans-serif; color:#c04479; }
+  h1 { font-size:clamp(2.5rem,8vw,5.2rem); line-height:1.02; margin:16px 0; color:var(--deep); }
+  .name { color:var(--pink); text-shadow:0 5px 0 #ffd2e2; }
+  .subtitle { max-width:620px; margin:0 auto 24px; font:17px/1.7 Arial,sans-serif; color:#70445f; }
+  .scene { position:relative; margin:24px auto; max-width:680px; min-height:270px; display:grid; place-items:center; }
+  .glow { position:absolute; width:240px; height:240px; border-radius:50%; background:#ffd6e6; filter:blur(20px); opacity:.75; }
+  .cake { position:relative; font-size:clamp(100px,22vw,160px); filter:drop-shadow(0 12px 12px #d58ca766); animation:bob 3s ease-in-out infinite; }
+  @keyframes bob { 0%,100%{transform:translateY(0) rotate(-2deg)} 50%{transform:translateY(-12px) rotate(2deg)} }
+  .card { position:relative; max-width:680px; margin:0 auto; padding:clamp(22px,5vw,42px); border:1px solid #ffd2e4; border-radius:28px; background:#ffffffd9; box-shadow:0 18px 55px #a73d7020; }
+  .card h2 { margin:0 0 14px; font-size:clamp(1.7rem,5vw,2.5rem); color:var(--deep); }
+  .card p { font:16px/1.85 Arial,sans-serif; margin:10px 0; color:#69465e; }
+  .button { border:0; border-radius:999px; padding:15px 25px; background:linear-gradient(135deg,#ff5c93,#c8448d); color:white; font:700 15px Arial,sans-serif; cursor:pointer; box-shadow:0 8px 20px #d94d8b44; transition:transform .2s; }
+  .button:hover { transform:translateY(-2px) scale(1.02); }
+  .hidden { display:none; }
+  .surprise { margin-top:24px; padding-top:22px; border-top:1px dashed #f1a8c7; animation:appear .6s ease both; }
+  @keyframes appear { from{opacity:0;transform:translateY(12px)} to{opacity:1;transform:translateY(0)} }
+  .blessing { font-size:1.2rem!important; color:#a22d68!important; font-weight:bold; }
+  .footer { margin-top:28px; font:13px/1.7 Arial,sans-serif; color:#9a6b87; }
+  .float { position:fixed; bottom:-35px; pointer-events:none; z-index:5; animation:rise 4.5s linear forwards; }
+  @keyframes rise { to { transform:translateY(-110vh) rotate(360deg); opacity:0; } }
+  .sparkle { color:#ff5c93; }
+  @media (prefers-reduced-motion: reduce) { *,*::before,*::after { animation-duration:.01ms!important; transition-duration:.01ms!important; } }
+</style>
+</head>
+<body>
+<main class="wrap">
+  <div class="eyebrow">A little surprise made with love</div>
+  <h1>Happy Birthday,<br><span class="name">WAJIHA!</span></h1>
+  <p class="subtitle">A little birthday magic, made for you by your elder brother. 💗<br>Ready to open your surprise?</p>
+  <div class="scene" aria-hidden="true"><div class="glow"></div><div class="cake">🎂</div></div>
+  <section class="card">
+    <h2>To my lovely little sister <span class="sparkle">♡</span></h2>
+    <p>Today is all about you, Wajiha — your smile, your happiness, and all the beautiful things waiting for you ahead.</p>
+    <button class="button" id="openBtn" type="button">🎁 Open your surprise</button>
+    <div class="surprise hidden" id="surprise">
+      <h2>Dear Wajiha, 💖</h2>
+      <p>Happy Birthday to the sweetest little sister! I may not always say it, but you mean so much to me. May your days be filled with laughter, your heart with peace, and your life with countless reasons to smile.</p>
+      <p class="blessing">May Allah bless you with good health, happiness, success, and protect you always. Ameen. 🤲✨</p>
+      <p>Keep shining, keep smiling, and never forget how special you are. Your elder brother will always be cheering for you. 🫶</p>
+      <p style="font-size:1.5rem">🎂 🎉 💐 ❤️ 🎁</p>
+    </div>
+  </section>
+  <div class="footer">Made with love for WAJIHA, from her elder brother. 🫶<br>Have the most beautiful birthday!</div>
+</main>
+<script>
+const btn = document.getElementById('openBtn');
+const surprise = document.getElementById('surprise');
+btn.addEventListener('click', () => {
+  surprise.classList.remove('hidden');
+  btn.textContent = '💗 Surprise opened!';
+  btn.disabled = true;
+  const symbols = ['💖','💗','✨','🎉','💕','🌸'];
+  for (let i=0; i<38; i++) {
+    const item = document.createElement('span');
+    item.className = 'float';
+    item.textContent = symbols[Math.floor(Math.random()*symbols.length)];
+    item.style.left = Math.random()*100 + 'vw';
+    item.style.fontSize = (16 + Math.random()*20) + 'px';
+    item.style.animationDelay = (Math.random()*1.4) + 's';
+    document.body.appendChild(item);
+    setTimeout(() => item.remove(), 6000);
+  }
+});
+</script>
+</body>
+</html>
